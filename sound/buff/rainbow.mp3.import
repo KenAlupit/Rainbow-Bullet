@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/rainbow.mp3-2db6a66fd3f6444dec5ea81971a534ea.mp3str"
+
+[deps]
+
+source_file="res://sound/buff/rainbow.mp3"
+dest_files=[ "res://.import/rainbow.mp3-2db6a66fd3f6444dec5ea81971a534ea.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

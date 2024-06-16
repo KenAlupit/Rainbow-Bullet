@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/sound/Splatter.gd" type="Script" id=1]
+
+[node name="Ricochet" type="AudioStreamPlayer2D"]
+volume_db = -2.0
+max_distance = 1000.0
+attenuation = 5.09824
+bus = "Environment"
+script = ExtResource( 1 )

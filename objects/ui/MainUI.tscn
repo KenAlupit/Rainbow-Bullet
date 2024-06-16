@@ -1,0 +1,259 @@
+[gd_scene load_steps=31 format=2]
+
+[ext_resource path="res://textures/ui/HotbarDark.png" type="Texture" id=1]
+[ext_resource path="res://scripts/ui/MainUI.gd" type="Script" id=2]
+[ext_resource path="res://objects/ui/Healthbar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://objects/ui/PlayerIcon.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/ui/Buff.tscn" type="PackedScene" id=5]
+[ext_resource path="res://fonts/main.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://scripts/ui/debug/Framerate.gd" type="Script" id=7]
+[ext_resource path="res://objects/ui/ColorWheel.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scripts/ui/Black.gd" type="Script" id=10]
+[ext_resource path="res://textures/vanity/Vignette.png" type="Texture" id=15]
+[ext_resource path="res://objects/ui/Equipment.tscn" type="PackedScene" id=16]
+[ext_resource path="res://textures/ui/Dash.png" type="Texture" id=17]
+[ext_resource path="res://objects/ui/PauseMenu.tscn" type="PackedScene" id=18]
+[ext_resource path="res://objects/ui/GameOver.tscn" type="PackedScene" id=19]
+[ext_resource path="res://scripts/ui/NewEquip.gd" type="Script" id=20]
+[ext_resource path="res://textures/ui/Left.png" type="Texture" id=21]
+
+[sub_resource type="Theme" id=15]
+
+[sub_resource type="DynamicFont" id=16]
+size = 10
+outline_size = 1
+outline_color = Color( 0, 0, 0, 0.392157 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="Theme" id=1]
+
+[sub_resource type="DynamicFont" id=2]
+size = 8
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="Theme" id=3]
+
+[sub_resource type="DynamicFont" id=4]
+size = 18
+outline_size = 2
+outline_color = Color( 0, 0, 0, 0.392157 )
+use_mipmaps = true
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 12
+outline_size = 2
+outline_color = Color( 0, 0, 0, 0.392157 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="Theme" id=6]
+default_font = SubResource( 5 )
+
+[sub_resource type="Theme" id=7]
+
+[sub_resource type="DynamicFont" id=8]
+size = 14
+outline_size = 2
+outline_color = Color( 0, 0, 0, 0.392157 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="Theme" id=11]
+
+[sub_resource type="DynamicFont" id=12]
+size = 12
+outline_size = 2
+outline_color = Color( 0, 0, 0, 0.392157 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="Theme" id=13]
+
+[sub_resource type="DynamicFont" id=14]
+size = 32
+outline_size = 2
+outline_color = Color( 0, 0, 0, 0.392157 )
+font_data = ExtResource( 6 )
+
+[node name="MainUI" type="CanvasLayer"]
+script = ExtResource( 2 )
+
+[node name="PauseMenu" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Pause Menu" parent="PauseMenu" instance=ExtResource( 18 )]
+visible = false
+
+[node name="Vignette" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 15 )
+expand = true
+
+[node name="Tween" type="Tween" parent="Vignette"]
+
+[node name="Left" type="TextureRect" parent="."]
+margin_left = -37.0
+margin_right = 240.0
+margin_bottom = 68.0
+texture = ExtResource( 21 )
+expand = true
+
+[node name="Inventory" type="HBoxContainer" parent="."]
+visible = false
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -148.0
+margin_top = -85.0
+margin_right = -16.0
+margin_bottom = -21.0
+
+[node name="EquipmentTwo" type="TextureRect" parent="Inventory"]
+margin_right = 64.0
+margin_bottom = 64.0
+texture = ExtResource( 1 )
+
+[node name="ETControl" type="Label" parent="Inventory/EquipmentTwo"]
+margin_left = 9.0
+margin_top = -0.200012
+margin_right = 49.0
+margin_bottom = 27.8
+theme = SubResource( 15 )
+custom_fonts/font = SubResource( 16 )
+text = "V"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="EquipmentOne" type="TextureRect" parent="Inventory"]
+margin_left = 68.0
+margin_right = 132.0
+margin_bottom = 64.0
+texture = ExtResource( 1 )
+
+[node name="EOControl" type="Label" parent="Inventory/EquipmentOne"]
+margin_left = 9.0
+margin_top = -0.200012
+margin_right = 49.0
+margin_bottom = 27.8
+theme = SubResource( 15 )
+custom_fonts/font = SubResource( 16 )
+text = "C"
+
+[node name="Healthbar" parent="." instance=ExtResource( 3 )]
+margin_left = 8.0
+margin_top = -29.0
+margin_right = 216.0
+margin_bottom = -4.0
+
+[node name="PlayerIcon" parent="." instance=ExtResource( 4 )]
+visible = false
+
+[node name="Framerate" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -496.0
+margin_top = 146.0
+margin_right = -27.0
+margin_bottom = 192.0
+theme = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
+align = 2
+script = ExtResource( 7 )
+
+[node name="Wave" type="Label" parent="."]
+margin_left = 19.0
+margin_top = -9.0
+margin_right = 969.0
+margin_bottom = 82.0
+rect_pivot_offset = Vector2( -270, -39 )
+theme = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
+text = "WAVE 0"
+
+[node name="Buff" parent="." instance=ExtResource( 5 )]
+visible = false
+anchor_top = 0.89
+anchor_bottom = 0.89
+
+[node name="EnemiesLeft" type="Label" parent="."]
+margin_left = 19.0
+margin_top = 31.0
+margin_right = 630.0
+margin_bottom = 66.0
+theme = SubResource( 6 )
+text = "ENEMIES LEFT"
+
+[node name="Score" type="Label" parent="."]
+margin_left = 20.0
+margin_top = 62.0
+margin_right = 504.0
+margin_bottom = 108.0
+theme = SubResource( 7 )
+custom_fonts/font = SubResource( 8 )
+text = "AHHHHHHHH"
+
+[node name="Equipment" parent="." instance=ExtResource( 16 )]
+margin_left = -13.0
+margin_top = -225.0
+margin_right = -9.0
+margin_bottom = 61.0
+
+[node name="Dash" type="TextureRect" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 11.0
+margin_top = -75.0
+margin_right = 51.0
+margin_bottom = -35.0
+texture = ExtResource( 17 )
+expand = true
+
+[node name="Text" type="Label" parent="Dash"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 9.0
+margin_top = -19.0
+margin_right = 309.0
+margin_bottom = 16.0
+theme = SubResource( 11 )
+custom_fonts/font = SubResource( 12 )
+valign = 1
+
+[node name="Black" type="Panel" parent="."]
+visible = false
+modulate = Color( 0, 0, 0, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 10 )
+
+[node name="Tween" type="Tween" parent="Black"]
+
+[node name="ColorWheel" parent="." instance=ExtResource( 8 )]
+
+[node name="GameOver" parent="." instance=ExtResource( 19 )]
+
+[node name="NewEquip" type="Label" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.104
+anchor_right = 0.5
+anchor_bottom = 0.104
+margin_left = -297.5
+margin_right = 297.5
+margin_bottom = 91.0
+theme = SubResource( 13 )
+custom_fonts/font = SubResource( 14 )
+text = "NEW WEAPON UNLOCKED!"
+align = 1
+script = ExtResource( 20 )
+
+[node name="Tween" type="Tween" parent="NewEquip"]
+
+[connection signal="tween_all_completed" from="NewEquip/Tween" to="NewEquip" method="_on_Tween_tween_all_completed"]

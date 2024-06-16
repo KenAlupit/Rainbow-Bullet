@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/demonic.mp3-2cd4235caa5790d097a17c8c0fa16d90.mp3str"
+
+[deps]
+
+source_file="res://sound/buff/demonic.mp3"
+dest_files=[ "res://.import/demonic.mp3-2cd4235caa5790d097a17c8c0fa16d90.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

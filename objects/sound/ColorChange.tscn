@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/sound/Splatter.gd" type="Script" id=1]
+[ext_resource path="res://sound/player/color_change.mp3" type="AudioStream" id=2]
+
+[node name="ColorChange" type="AudioStreamPlayer2D"]
+stream = ExtResource( 2 )
+volume_db = 2.486
+attenuation = 2.92817
+bus = "Environment"
+script = ExtResource( 1 )

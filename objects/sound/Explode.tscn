@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/sound/Splatter.gd" type="Script" id=1]
+[ext_resource path="res://sound/enemy/explode.mp3" type="AudioStream" id=2]
+
+[node name="Explode" type="AudioStreamPlayer2D"]
+stream = ExtResource( 2 )
+volume_db = 1.5
+bus = "Environment"
+script = ExtResource( 1 )

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/no_buff.mp3-8dbd7bcd725bd03989c2617db7a3507e.mp3str"
+
+[deps]
+
+source_file="res://sound/buff/no_buff.mp3"
+dest_files=[ "res://.import/no_buff.mp3-8dbd7bcd725bd03989c2617db7a3507e.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

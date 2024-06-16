@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/sound/Splatter.gd" type="Script" id=1]
+[ext_resource path="res://sound/player/dash.mp3" type="AudioStream" id=2]
+
+[node name="DashSound" type="AudioStreamPlayer2D"]
+stream = ExtResource( 2 )
+volume_db = -2.312
+attenuation = 4.92458
+bus = "Environment"
+script = ExtResource( 1 )

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/reversal.mp3-a7b3254223a831f1ddfc7b9688e88930.mp3str"
+
+[deps]
+
+source_file="res://sound/buff/reversal.mp3"
+dest_files=[ "res://.import/reversal.mp3-a7b3254223a831f1ddfc7b9688e88930.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

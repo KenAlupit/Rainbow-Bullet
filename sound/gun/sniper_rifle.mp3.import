@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/sniper_rifle.mp3-3ec6477cace2d13a995501d58c32f2d1.mp3str"
+
+[deps]
+
+source_file="res://sound/gun/sniper_rifle.mp3"
+dest_files=[ "res://.import/sniper_rifle.mp3-3ec6477cace2d13a995501d58c32f2d1.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

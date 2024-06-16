@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://fonts/main.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scripts/ui/Separator.gd" type="Script" id=2]
+
+[sub_resource type="Theme" id=17]
+
+[sub_resource type="DynamicFont" id=18]
+size = 12
+outline_size = 2
+outline_color = Color( 0, 0, 0, 0.392157 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="Theme" id=19]
+
+[sub_resource type="StyleBoxFlat" id=20]
+bg_color = Color( 0, 0, 0, 0.588235 )
+border_color = Color( 1, 1, 1, 1 )
+corner_detail = 4
+
+[node name="Audio" type="Panel"]
+margin_right = 332.0
+script = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -17.5
+margin_right = 332.0
+margin_bottom = 17.5
+theme = SubResource( 17 )
+custom_fonts/font = SubResource( 18 )
+text = "Audio"
+uppercase = true
+
+[node name="Separator" type="Panel" parent="."]
+anchor_top = 0.792
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 13.0
+margin_bottom = 15.0
+theme = SubResource( 19 )
+custom_styles/panel = SubResource( 20 )

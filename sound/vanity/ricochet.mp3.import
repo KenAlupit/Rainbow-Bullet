@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ricochet.mp3-253152e9066e01aa67c290eab408a677.mp3str"
+
+[deps]
+
+source_file="res://sound/vanity/ricochet.mp3"
+dest_files=[ "res://.import/ricochet.mp3-253152e9066e01aa67c290eab408a677.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

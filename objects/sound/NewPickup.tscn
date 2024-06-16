@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/sound/NewPickup.gd" type="Script" id=1]
+[ext_resource path="res://sound/player/new_equip.mp3" type="AudioStream" id=2]
+
+[node name="NewPickup" type="AudioStreamPlayer"]
+stream = ExtResource( 2 )
+bus = "Sound"
+script = ExtResource( 1 )

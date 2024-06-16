@@ -1,0 +1,164 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://objects/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://objects/Camera.tscn" type="PackedScene" id=2]
+[ext_resource path="res://objects/ui/MainUI.tscn" type="PackedScene" id=3]
+[ext_resource path="res://objects/Test Block.tscn" type="PackedScene" id=4]
+[ext_resource path="res://textures/map/Black.png" type="Texture" id=5]
+[ext_resource path="res://textures/map/Map Floor.png" type="Texture" id=6]
+[ext_resource path="res://scripts/ui/Crosshair.gd" type="Script" id=7]
+[ext_resource path="res://textures/sprites/crosshair.png" type="Texture" id=8]
+[ext_resource path="res://objects/BuffSpawner.tscn" type="PackedScene" id=9]
+[ext_resource path="res://objects/RandSpawner.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scripts/core/World.gd" type="Script" id=11]
+[ext_resource path="res://sound/music/bgm.mp3" type="AudioStream" id=12]
+[ext_resource path="res://scripts/factories/BuffFactory.gd" type="Script" id=13]
+[ext_resource path="res://scripts/factories/EnemyFactory.gd" type="Script" id=14]
+[ext_resource path="res://scripts/ui/DamageIndicator.gd" type="Script" id=15]
+
+[sub_resource type="OccluderPolygon2D" id=1]
+polygon = PoolVector2Array( -120, 171, 103, 171, 103, 235, -120, 235 )
+
+[sub_resource type="OccluderPolygon2D" id=2]
+polygon = PoolVector2Array( 339, -126, 275, -126, 275, 97, 339, 97 )
+
+[sub_resource type="OccluderPolygon2D" id=3]
+polygon = PoolVector2Array( 112, -258, 112, -194, -111, -194, -111, -258 )
+
+[sub_resource type="OccluderPolygon2D" id=4]
+polygon = PoolVector2Array( -252, -132, -316, -132, -315, 91, -252, 91 )
+
+[node name="World" type="Node2D"]
+script = ExtResource( 11 )
+
+[node name="Map" type="StaticBody2D" parent="."]
+
+[node name="Floor" type="Sprite" parent="Map"]
+position = Vector2( 1, -3 )
+scale = Vector2( 1.93527, 2.00536 )
+z_index = -3
+texture = ExtResource( 6 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 896, 560 )
+
+[node name="Black" type="Sprite" parent="Map"]
+z_index = -5
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 5000, 5000 )
+
+[node name="Collision" type="CollisionPolygon2D" parent="Map"]
+position = Vector2( 1, -5 )
+scale = Vector2( 1.93527, 2.00536 )
+polygon = PoolVector2Array( -447.999, -278.753, 447.999, -279.252, 447.999, 281.246, -447.999, 281.246, -887.731, 257.31, -655.722, 754.977, 845.877, 855.208, 984.359, -656.241, -884.114, -663.721, -997.277, 275.761, -885.664, 257.31, -447.999, 281.246 )
+
+[node name="Boundary" type="Node" parent="Map"]
+
+[node name="Black" type="Sprite" parent="Map/Boundary"]
+position = Vector2( 1, -820 )
+scale = Vector2( 4.72656, 0.998047 )
+z_index = 100
+texture = ExtResource( 5 )
+
+[node name="Black2" type="Sprite" parent="Map/Boundary"]
+position = Vector2( 0, 815 )
+scale = Vector2( 4.72656, 0.998047 )
+z_index = 100
+texture = ExtResource( 5 )
+
+[node name="Black3" type="Sprite" parent="Map/Boundary"]
+position = Vector2( -1127, 1 )
+scale = Vector2( 1.01953, 2.26172 )
+z_index = 100
+texture = ExtResource( 5 )
+
+[node name="Black4" type="Sprite" parent="Map/Boundary"]
+position = Vector2( 1129, -20 )
+scale = Vector2( 1.01953, 2.26172 )
+z_index = 100
+texture = ExtResource( 5 )
+
+[node name="Occlusions" type="Node" parent="Map"]
+
+[node name="Box" type="LightOccluder2D" parent="Map/Occlusions"]
+occluder = SubResource( 1 )
+
+[node name="Box2" type="LightOccluder2D" parent="Map/Occlusions"]
+occluder = SubResource( 2 )
+
+[node name="Box3" type="LightOccluder2D" parent="Map/Occlusions"]
+occluder = SubResource( 3 )
+
+[node name="Box4" type="LightOccluder2D" parent="Map/Occlusions"]
+occluder = SubResource( 4 )
+
+[node name="Walls" type="YSort" parent="Map"]
+position = Vector2( 0.999878, -3.00006 )
+scale = Vector2( 1.93527, 2.00536 )
+
+[node name="StaticBody2D" parent="Map/Walls" instance=ExtResource( 4 )]
+position = Vector2( 158.117, 33.9091 )
+rotation = -1.5708
+scale = Vector2( 0.498664, 0.516724 )
+
+[node name="StaticBody2D2" parent="Map/Walls" instance=ExtResource( 4 )]
+position = Vector2( -147.266, 30.9171 )
+rotation = -1.5708
+scale = Vector2( 0.498664, 0.516724 )
+
+[node name="StaticBody2D3" parent="Map/Walls" instance=ExtResource( 4 )]
+position = Vector2( -45.9884, 102.725 )
+scale = Vector2( 0.516724, 0.498664 )
+
+[node name="StaticBody2D4" parent="Map/Walls" instance=ExtResource( 4 )]
+position = Vector2( -41.3379, -111.202 )
+scale = Vector2( 0.516724, 0.498664 )
+
+[node name="YSort" type="YSort" parent="."]
+position = Vector2( 1, -3 )
+
+[node name="Player" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 1.55017, 3.49064 )
+
+[node name="BuffSpawner" parent="YSort" instance=ExtResource( 9 )]
+
+[node name="WaveController" parent="YSort" instance=ExtResource( 10 )]
+
+[node name="Camera" parent="." instance=ExtResource( 2 )]
+
+[node name="TopLeft" type="Position2D" parent="Camera"]
+position = Vector2( -866, -564 )
+scale = Vector2( 1.93527, 2.00536 )
+
+[node name="BottomRight" type="Position2D" parent="Camera"]
+position = Vector2( 866, 558 )
+scale = Vector2( 1.93527, 2.00536 )
+
+[node name="Crosshair" type="Sprite" parent="."]
+pause_mode = 2
+position = Vector2( 302, 187 )
+z_index = 2
+texture = ExtResource( 8 )
+script = ExtResource( 7 )
+
+[node name="Modulate" type="CanvasModulate" parent="."]
+color = Color( 0.682353, 0.682353, 0.682353, 1 )
+
+[node name="MainUI" parent="." instance=ExtResource( 3 )]
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+volume_db = -20.0
+bus = "Music"
+
+[node name="Factories" type="Node" parent="."]
+
+[node name="Buff" type="Node" parent="Factories"]
+script = ExtResource( 13 )
+
+[node name="Enemy" type="Node" parent="Factories"]
+script = ExtResource( 14 )
+
+[node name="Indicators" type="CanvasLayer" parent="."]
+follow_viewport_enable = true
+script = ExtResource( 15 )

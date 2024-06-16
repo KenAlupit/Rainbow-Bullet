@@ -1,0 +1,74 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://fonts/main.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scripts/ui/Keybind.gd" type="Script" id=2]
+
+[sub_resource type="Theme" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="Theme" id=1]
+
+[sub_resource type="DynamicFont" id=2]
+size = 12
+outline_size = 2
+outline_color = Color( 0, 0, 0, 0.392157 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0, 0, 0, 0.588235 )
+
+[sub_resource type="Theme" id=6]
+
+[sub_resource type="DynamicFont" id=7]
+size = 8
+outline_size = 2
+outline_color = Color( 0, 0, 0, 0.392157 )
+font_data = ExtResource( 1 )
+
+[node name="Panel" type="Panel"]
+margin_right = 332.0
+margin_bottom = 38.0
+theme = SubResource( 3 )
+custom_styles/panel = SubResource( 4 )
+script = ExtResource( 2 )
+
+[node name="Name" type="Label" parent="."]
+anchor_left = 0.033
+anchor_top = 0.4
+anchor_right = 0.033
+anchor_bottom = 0.5
+margin_top = -17.5
+margin_right = 55.0
+margin_bottom = 17.5
+theme = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
+text = "WORLD MOVEMENT"
+valign = 1
+uppercase = true
+
+[node name="Input" type="Panel" parent="."]
+anchor_left = 0.81
+anchor_top = 0.5
+anchor_right = 0.952
+anchor_bottom = 0.5
+margin_left = -65.92
+margin_top = -14.0
+margin_right = -0.0639954
+margin_bottom = 14.0
+custom_styles/panel = SubResource( 5 )
+
+[node name="Keybind" type="Button" parent="Input"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -66.5
+margin_top = -14.0
+margin_right = 66.5
+margin_bottom = 15.0
+theme = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
+flat = true
+
+[connection signal="pressed" from="Input/Keybind" to="." method="_on_Keybind_pressed"]
