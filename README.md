@@ -1,4 +1,4 @@
-# rainbow-bullet
+# Rainbow Bullet
 
 ## Description
 
