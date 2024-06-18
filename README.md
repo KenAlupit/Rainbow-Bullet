@@ -99,3 +99,7 @@ Enemies in RAINBOW BULLET are color-coded the same as the weapons of the game, a
 ## Environment	
 The environment of RAINBOW BULLET is a simple white lab facility with grid patterns on the walls and floors. Covers can be found scattered throughout the map as well. There will only be one large map for RAINBOW BULLET.
 
+## Credits
+- Manuel Angelo R. Abanilla
+- Ken Adrian Alupit
+
